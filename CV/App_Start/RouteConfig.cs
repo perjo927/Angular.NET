@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace CV
@@ -14,10 +10,29 @@ namespace CV
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "routeOne",
+                url: "routesDemo/One",
+                defaults: new {controller = "RoutesDemo", action = "One"});
+
+            routes.MapRoute(
+                name: "routeTwo",
+                url: "routesDemo/Two/{donuts}",
+                defaults: new {controller = "RoutesDemo", action = "Two", donuts = UrlParameter.Optional});
+
+            routes.MapRoute(
+                name: "routeThree",
+                url: "routesDemo/Three",
+                defaults: new {controller = "RoutesDemo", action = "Three"});
+
+            routes.MapRoute(
+                name: "login",
+                url: "Account/Login",
+                defaults: new {controller = "Account", action = "Login"});
+
+            routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                url: "{*url}",
+                defaults: new {controller = "Home", action = "Index"});
         }
     }
 }
