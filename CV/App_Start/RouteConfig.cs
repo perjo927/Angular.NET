@@ -12,27 +12,32 @@ namespace CV
             routes.MapRoute(
                 name: "routeOne",
                 url: "routesDemo/One",
-                defaults: new {controller = "RoutesDemo", action = "One"});
+                defaults: new { controller = "RoutesDemo", action = "One" });
 
             routes.MapRoute(
                 name: "routeTwo",
                 url: "routesDemo/Two/{donuts}",
-                defaults: new {controller = "RoutesDemo", action = "Two", donuts = UrlParameter.Optional});
+                defaults: new { controller = "RoutesDemo", action = "Two", donuts = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "routeThree",
                 url: "routesDemo/Three",
-                defaults: new {controller = "RoutesDemo", action = "Three"});
+                defaults: new { controller = "RoutesDemo", action = "Three" });
+
+            routes.MapRoute(
+                name: "routeFour",
+                url: "routesDemo/Four",
+                defaults: new { controller = "RoutesDemo", action = "Four" });
 
             routes.MapRoute(
                 name: "login",
                 url: "Account/Login",
-                defaults: new {controller = "Account", action = "Login"});
+                defaults: new { controller = "Account", action = "Login" });
 
             routes.MapRoute(
                 name: "Default",
                 url: "{*url}",
-                defaults: new {controller = "Home", action = "Index"});
+                defaults: new { controller = "Home", action = "Index" });
         }
     }
 }

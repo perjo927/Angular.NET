@@ -43,6 +43,9 @@
                        },
                        "containerTwo": {
                            templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
+                       },
+                       "nestedView@stateOne": {
+                           templateUrl: '/routesDemo/four'
                        }
                    }
                })

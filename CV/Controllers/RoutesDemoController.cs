@@ -15,8 +15,12 @@ namespace CV.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult Three()
+        {
+            return View();
+        }
+        public ActionResult Four()
         {
             return View();
         }

@@ -215,6 +215,7 @@
     <Content Include="Views\RoutesDemo\Two.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\RoutesDemo\Three.cshtml" />
+    <Content Include="Views\RoutesDemo\Four.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
