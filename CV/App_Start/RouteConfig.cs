@@ -35,6 +35,11 @@ namespace CV
                 defaults: new { controller = "Account", action = "Login" });
 
             routes.MapRoute(
+                name: "apiDemo",
+                url: "ApiDemo/Index",
+                defaults: new { controller = "ApiDemo", action = "Index" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{*url}",
                 defaults: new { controller = "Home", action = "Index" });
