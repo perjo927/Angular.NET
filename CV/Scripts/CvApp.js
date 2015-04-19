@@ -1,96 +1,37 @@
 ﻿(function (ng) {
-    //var CvApp = ng.module('CvApp', ['ngRoute']);
-    var CvApp = ng.module('CvApp', ['ui.router']);
-
+    var CvApp = ng.module('CvApp', ['ngRoute', 'ngCookies']);
 
     CvApp.controller('LandingPageController', LandingPageController);
+    CvApp.controller('BaseController', BaseController);
     CvApp.controller('LoginController', LoginController);
-    //CvApp.controller('RegisterController', RegisterController);
+    CvApp.controller('RegisterController', RegisterController);
+    CvApp.controller('ValuesController', ValuesController);
 
-    CvApp.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
+    CvApp.service('SessionService', SessionService);
+
     CvApp.factory('LoginFactory', LoginFactory);
-    //CvApp.factory('RegistrationFactory', RegistrationFactory);
+    CvApp.factory('RegisterFactory', RegisterFactory);
+    CvApp.factory('GetValuesFactory', GetValuesFactory);
 
-    //var configFunction = function ($routeProvider, $httpProvider, $locationProvider) {
-    var configFunction = function ($stateProvider, $httpProvider, $locationProvider) {
-
-        $locationProvider.hashPrefix('!').html5Mode(true);
-
-        //$routeProvider.
-        //    when('/routeOne', {
-        //        templateUrl: 'routesDemo/one'
-        //    })
-        //    .when('/routeTwo/:donuts', {
-        //        templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
-        //    })
-        //    .when('/routeThree', {
-        //        templateUrl: 'routesDemo/three'
-        //    })
-        //    .when('/login', {
-        //        templateUrl: '/Account/Login',
-        //        controller: LoginController
-        //    })
-        //    .otherwise({
-        //        redirectTo: '/'
-        //    });
-
-          $stateProvider
-               .state('stateOne', {
-                   url: '/stateOne?donuts',
-                   views: {
-                       "containerOne": {
-                           templateUrl: '/routesDemo/one'
-                       },
-                       "containerTwo": {
-                           templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
-                       },
-                       "nestedView@stateOne": {
-                           templateUrl: '/routesDemo/four'
-                       }
-                   }
-               })
-               .state('stateTwo', {
-                   url: '/stateTwo',
-                   views: {
-                       "containerOne": {
-                           templateUrl: '/routesDemo/one'
-                       },
-                       "containerTwo": {
-                           templateUrl: '/routesDemo/three'
-                       }
-                   }
-               })
-               .state('stateThree', {
-                   url: '/stateThree?donuts',
-                   views: {
-                       "containerOne": {
-                           templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
-                       },
-                       "containerTwo": {
-                           templateUrl: '/routesDemo/three'
-                       }
-                   }
-               })
-               .state('loginRegister', {
-                   url: '/loginRegister?returnUrl',
-                   views: {
-                       "containerOne": {
-                           templateUrl: '/Account/Login',
-                           controller: LoginController
-                       }
-                       //,
-                       //"containerTwo": {
-                       //    templateUrl: '/Account/Register',
-                       //    controller: RegisterController
-                       //}
-                   }
-               });
-
-
-        $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
+    var configFunction = function ($routeProvider) {
+        $routeProvider
+            .when('/login', {
+                templateUrl: '/Home/Login',
+                controller: LoginController
+            })
+            .when('/register', {
+                templateUrl: '/Home/Register',
+                controller: RegisterController
+            })
+            .when('/values', {
+                templateUrl: '/Home/Values',
+                controller: ValuesController
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
     }
-    //configFunction.$inject = ['$routeProvider', '$httpProvider', '$locationProvider'];
-    configFunction.$inject = ['$stateProvider', '$httpProvider', '$locationProvider'];
+    configFunction.$inject = ['$routeProvider'];
 
     CvApp.config(configFunction);
 }(window.angular));

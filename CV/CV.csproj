@@ -180,15 +180,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ApiDemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RoutesDemoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -196,15 +191,24 @@
     <Content Include=".gitignore" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\Css\Site.css" />
     <Content Include="Scripts\AwesomeAngularWebApp.js" />
     <Content Include="Scripts\Controllers\BaseController.js" />
     <Content Include="Scripts\Controllers\LandingPageController.js" />
     <Content Include="Scripts\Controllers\LoginController.js" />
+    <Content Include="Scripts\Controllers\RegisterController.js" />
+    <Content Include="Scripts\Controllers\ValuesController.js" />
     <Content Include="Scripts\CvApp.js" />
-    <Content Include="Scripts\Factories\AuthHttpResponseInterceptor.js" />
+    <Content Include="Scripts\Factories\GetValuesFactory.js" />
     <Content Include="Scripts\Factories\LoginFactory.js" />
+    <Content Include="Scripts\Factories\RegisterFactory.js" />
+    <Content Include="Scripts\Lib\angular-1.3.min.js" />
+    <Content Include="Scripts\Lib\angular-cookies-1.3.min.js" />
+    <Content Include="Scripts\Lib\angular-route-1.3.min.js" />
+    <Content Include="Scripts\Services\SessionService.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Views\Home\Register.cshtml" />
+    <None Include="Views\Home\Login.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -217,16 +221,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Views\RoutesDemo\One.cshtml" />
-    <Content Include="Views\RoutesDemo\Two.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\RoutesDemo\Three.cshtml" />
-    <Content Include="Views\RoutesDemo\Four.cshtml" />
     <Content Include="Views\ApiDemo\Index.cshtml" />
+    <Content Include="Views\Home\Values.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

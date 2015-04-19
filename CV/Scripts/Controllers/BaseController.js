@@ -1,4 +1,10 @@
-﻿var BaseController = function ($scope) {
+﻿;
+var BaseController = function ($scope, SessionService) {
+    'use strict';
     $scope.helloAgain = 'Hello Angular 1.3!';
-}
-BaseController.$inject = ['$scope'];
+
+    $scope.loggedIn = function () {
+        return SessionService.getToken() !== undefined;
+    };
+};
+BaseController.$inject = ['$scope', 'SessionService'];
